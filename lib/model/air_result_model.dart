@@ -1,7 +1,10 @@
 class AirResultModel {
-  String aqius;
-  String aqicn;
-  String ws;
+  num aqius;
+  num aqicn;
+  num ws;
 
-  AirResultModel({required this.aqius, required this.aqicn, required this.ws});
+  AirResultModel({
+    required this.aqicn, 
+    required this.aqius,
+    required this.ws});
 }

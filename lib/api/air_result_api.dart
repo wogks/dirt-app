@@ -12,15 +12,27 @@ class AirResultApi{
 
     Map<String, dynamic> json =jsonDecode(jsonString);
 
+    num aqius = json['data']['current']['pollution']['aqius'];
+    num aqicn = json['data']['current']['pollution']['aqicn'];
+    num ws = json['data']['current']['weather']['ws'];
+
+    return AirResultModel(aqicn: aqicn, aqius: aqius, ws: ws);
+
+
 
 
    
-    String aqius = json['data']['current']['pollution']['aqius'] as String;
-    String aqicn = json['data']['current']['pollution']['aqcicn']as String;
-    String ws = json['data']['current']['weather']['ws']as String;
+
+
+    
+    
 
 
 
-
-    return AirResultModel(aqius: aqius, aqicn: aqicn, ws: ws);
+    
+    
   }}
+
+  A() {
+    
+  }

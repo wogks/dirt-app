@@ -1,4 +1,6 @@
+import 'package:dirtapp/model/air_result_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    final viewmodel = context.watch<AirResultViewModel>();
     return Scaffold(
       body: Center(
         child: Column(
@@ -27,12 +30,13 @@ class _MainScreenState extends State<MainScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text('얼굴사진'),
+                        const Text('얼굴사진'),
                         Text(
-                          '80',
-                          style: TextStyle(fontSize: 40),
+                          viewmodel.airmodel.aqicn.toString(),
+                          style: const TextStyle(
+                              fontSize: 40, color: Colors.black),
                         ),
-                        Text(
+                        const Text(
                           '보통',
                           style: TextStyle(fontSize: 20),
                         ),
@@ -52,7 +56,7 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                       Text('습도 100%'),
-                      Text('풍속 5.7m/s')
+                      Text(viewmodel.airmodel.ws.toString())
                     ],
                   ),
                 ],
